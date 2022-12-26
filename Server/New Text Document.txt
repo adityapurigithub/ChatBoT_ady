@@ -1,0 +1,5 @@
+created this server folder
+npm init
+
+installed packages
+ npm i cors dotenv express nodemon openai
