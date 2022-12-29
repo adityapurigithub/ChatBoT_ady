@@ -28,7 +28,7 @@ function typeText(element, text) {
   let index = 0;
   let inteval = setInterval(() => {
     if (index < text.length) {
-      //it means we are still typing
+      //it means we are still typing...
       element.innerHTML += text.charAt(index);
       index++;
     } else {

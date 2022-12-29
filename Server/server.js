@@ -30,22 +30,39 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/", async (req, res) => {
+  //some err....
+  // try {
+  //   //name=prompt in textarea
+  //   const prompt = req.body.prompt;
+
+  //   const response = await openai.createCompletion({
+  //     //read docs
+  //     model: "text-davinci-003",
+  //     prompt: `${prompt}`, //passes users prompt
+
+  //     temperature: 0, //high temp means model will take more risk so temp:0
+  //     max_tokens: 3000, //no of tokens to generate after completion
+  //     top_p: 1,
+  //     frequency_penalty: 0.5, //freq penality means that it not going to repeate similar sentence...
+  //     presence_penalty: 0,
+  //     // stop: ['"""'], //we dont need stop
+  //   });
+  //   res.status(200).send({
+  //     bot: response.data.choices[0].text,
+  //   });
+  //}
   try {
-    //name=prompt in textarea
     const prompt = req.body.prompt;
-
     const response = await openai.createCompletion({
-      //read docs
       model: "text-davinci-003",
-      prompt: `${prompt}`, //passes users prompt
-
-      temperature: 0, //high temp means model will take more risk so temp:0
-      max_tokens: 3000, //no of tokens to generate after completion
+      prompt: `${prompt}`,
+      temperature: 0.7,
+      max_tokens: 3000,
       top_p: 1,
-      frequency_penalty: 0.5, //freq penality means that it not going to repeate similar sentence...
+      frequency_penalty: 0,
       presence_penalty: 0,
-      // stop: ['"""'], //we dont need stop
     });
+
     res.status(200).send({
       bot: response.data.choices[0].text,
     });
